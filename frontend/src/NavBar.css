@@ -1,0 +1,33 @@
+body {
+    background-color: white;
+    color: #800020;
+}
+
+#root {
+    background-color: white;
+    /* Set background to white */
+    color: #800020;
+    /* Set text to burgundy */
+}
+
+.title {
+    color: var(--color-red-950);
+    text-decoration-line: none;
+    font-size: var(--text-xl);
+}
+
+.title:hover {
+    color: var(--color-orange-950);
+}
+
+.tab {
+    color: var(--color-red-950);
+    text-decoration-line: none;
+    font-size: var(--text-lg);
+}
+
+.tab:hover {
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-orange-950);
+    color: var(--color-orange-950);
+}

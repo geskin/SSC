@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import logo from './assets/react.svg';
+import './NavBar.css';
 
 interface NavItem {
     name: string;
@@ -24,7 +25,7 @@ export default function NavBar() {
     };
 
     return (
-        <nav className="bg-gray-800 w-screen left-0 fixed top-0 z-50">
+        <nav className="bg-white-800 w-screen left-0 fixed top-0 z-50">
             <div className="px-4">
                 <div className="relative flex h-12 items-center justify-between">
                     {/* Mobile menu button */}
@@ -68,7 +69,7 @@ export default function NavBar() {
                     {/* Logo */}
                     <div className="flex flex-1 items-center justify-between sm:items-stretch sm:justify-start">
                         <div className="flex shrink-0 items-center">
-                            <a href="#intro"><img
+                            <a href="#merch"><img
                                 alt="logo"
                                 src={logo}
                                 className="h-8 w-auto"
@@ -79,24 +80,23 @@ export default function NavBar() {
                             {/* Left side: Brand and nav links */}
                             <div className="sm:ml-6 flex items-center space-x-4">
                                 <a
-                                    href="#intro"
-                                    className="text-gray-300 hover:text-white hover:bg-gray-700 rounded-md px-3 py-2 text-sm font-medium"
+                                    href="#merch"
+                                    className="title"
                                 >
-                                    Sally's Social Club
+                                    Sandy's Social Club
                                 </a>
-                                {navigation.map((item) => (
-                                    <a
-                                        key={item.name}
-                                        href={item.href}
-                                        aria-current={item.current ? 'page' : undefined}
-                                        className={`${item.current
-                                            ? 'bg-gray-900 text-white'
-                                            : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                                            } rounded-md px-3 py-2 text-sm font-medium`}
-                                    >
-                                        {item.name}
-                                    </a>
-                                ))}
+                                <div className="sm:ml-6 flex items-center space-x-4">
+                                    {navigation.map((item) => (
+                                        <a
+                                            key={item.name}
+                                            href={item.href}
+                                            aria-current={item.current ? 'page' : undefined}
+                                            className={'tab'}
+                                        >
+                                            {item.name}
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
