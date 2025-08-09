@@ -114,6 +114,10 @@ body {
 	line-height: 1;
 }
 
+body::-webkit-scrollbar {
+	display: none;
+}
+
 ol,
 ul {
 	list-style: none;
@@ -2312,7 +2316,8 @@ header .icon.circled {
 
 #header {
 	position: relative;
-	background-image: url("../../images/header.jpg");
+	/* background-image: url("../../images/header.jpg"); */
+	background-image: url("../../images/istock.mp4");
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;
@@ -2320,6 +2325,20 @@ header .icon.circled {
 	text-align: center;
 	padding: 7.5em 0 2em 0;
 	cursor: default;
+}
+
+#header .header-video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	transform: translate(-50%, -50%);
+	object-fit: cover;
+	z-index: 0;
+	/* behind header content */
 }
 
 #header:before {
@@ -2426,6 +2445,18 @@ body.homepage.is-preload #header:after {
 	/* adjust as needed */
 }
 
+#nav-logo {
+	font-weight: bold !important;
+	font-size: xx-large !important;
+	-webkit-text-stroke-width: 0.05px !important;
+	-webkit-text-stroke-color: #800020 !important;
+
+}
+
+#nav-logo:hover {
+	text-decoration-line: none !important;
+}
+
 
 /* Nav */
 
@@ -2445,15 +2476,6 @@ body.homepage.is-preload #header:after {
 	/* Semi-transparent white */
 	backdrop-filter: blur(6px);
 	/* Blur background behind navbar */
-}
-
-#nav-logo {
-	font-weight: bold;
-	font-size: x-large;
-}
-
-#nav-logo:hover {
-	text-decoration-line: none !important;
 }
 
 #nav>ul {
@@ -2500,7 +2522,8 @@ body.homepage.is-preload #header:after {
 	-ms-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 	transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 	font-weight: bolder;
-	-webkit-text-stroke-width: 0.05px;
+	font-size: large;
+	-webkit-text-stroke-width: 0.1px;
 	/* Adjust outline thickness */
 	-webkit-text-stroke-color: white;
 	/* Set the outline color */
@@ -2690,7 +2713,7 @@ body.homepage.is-preload #header:after {
 
 .carousel {
 	position: relative;
-	overflow: hidden;
+	overflow: visible;
 	padding: 2em 0 2em 0;
 	margin-bottom: 0;
 }
@@ -2724,16 +2747,23 @@ body.homepage.is-preload #header:after {
 	-webkit-backface-visibility: hidden;
 }
 
-.carousel .forward:after,
-.carousel .backward:after {
+.carousel .forward::after,
+.carousel .backward::after {
 	content: '';
+	display: block;
+	/* ensures the pseudo-element renders */
 	width: 3em;
 	height: 3em;
 	position: absolute;
 	top: 50%;
-	margin: -1.5em 0 0 0;
-	background: url("images/arrow.svg") no-repeat center center;
+	margin-top: -1.5em;
+	background: url("./images/arrow.svg") no-repeat center center;
+	background-size: contain;
+	z-index: 2000;
+	pointer-events: none;
 }
+
+
 
 .carousel .forward:hover:before,
 .carousel .backward:hover:before {
@@ -2771,7 +2801,7 @@ body.homepage.is-preload #header:after {
 .carousel .reel {
 	white-space: nowrap;
 	position: relative;
-	-webkit-overflow-scrolling: touch;
+	-webkit-overflow-scrolling: inherit;
 	padding: 0 2em 0 2em;
 }
 

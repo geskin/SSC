@@ -1,14 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./assets/css/main.css";
 import "./assets/css/noscript.css";
-import { BrowserRouter } from 'react-router-dom';
+import NewsletterModal from "./Newsletter";
+import { BrowserRouter } from "react-router-dom";
+import video from "./images/istock.mp4"
 
 
 function App() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    setShowModal(true);
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) {
+      setStatus("Please enter a valid email.");
+      return;
+    }
+
+    // Here you would integrate with your newsletter API
+    // For now we'll just simulate success:
+    setStatus("Thanks for signing up!");
+    setEmail("");
+  };
+
   return (
     <BrowserRouter>
       <div id="page-wrapper">
+
+        {showModal && <NewsletterModal onClose={() => setShowModal(false)} />}
+
         <div id="header">
+          <video autoPlay muted loop playsInline className="header-video">
+            <source src={video} type="video/mp4" />
+          </video>
           <div className="inner">
             <header>
               <h1>
@@ -198,18 +227,7 @@ function App() {
                 <p>Click events for event calendar</p>
               </header>
               <p>
-                Commodo id natoque malesuada sollicitudin elit suscipit. Curae
-                suspendisse mauris posuere accumsan massa posuere lacus convallis
-                tellus interdum. Amet nullam fringilla nibh nulla convallis ut
-                venenatis purus sit arcu sociis. Nunc fermentum adipiscing tempor
-                cursus nascetur adipiscing adipiscing. Primis aliquam mus lacinia
-                lobortis phasellus suscipit. Fermentum lobortis non tristique ante
-                proin sociis accumsan lobortis. Auctor etiam porttitor phasellus
-                tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat
-                integer interdum integer purus sapien. Nibh eleifend nulla nascetur
-                pharetra commodo mi augue interdum tellus. Ornare cursus augue
-                feugiat sodales velit lorem. Semper elementum ullamcorper lacinia
-                natoque aenean scelerisque.
+                Coming soon!
               </p>
               <footer>
                 <a href="#" className="button">
@@ -221,69 +239,48 @@ function App() {
         </div>
 
         {/* Newsletter */}
-        <div className="wrapper style1">
-          <section id="newsletter" className="container special">
-            <header>
-              <h2>Signup for updates</h2>
-              <p>
-                Ipsum volutpat consectetur orci metus consequat imperdiet duis
-                integer semper magna.
-              </p>
-            </header>
-            <div className="row">
-              <article className="col-4 col-12-mobile special">
-                <a href="#" className="image featured">
-                  <img src="images/pic07.jpg" alt="" />
-                </a>
-                <header>
-                  <h3>
-                    <a href="#">Gravida aliquam penatibus</a>
-                  </h3>
-                </header>
-                <p>
-                  Amet nullam fringilla nibh nulla convallis tique ante proin
-                  sociis accumsan lobortis. Auctor etiam porttitor phasellus
-                  tempus cubilia ultrices tempor sagittis. Nisl fermentum
-                  consequat integer interdum.
+        <div className="bg-white py-12 sm:py-16 lg:py-20">
+          <section
+            id="newsletter"
+            className="mx-auto max-w-7xl px-6 lg:px-8"
+          >
+            <div className="mx-auto max-w-2xl lg:max-w-none lg:flex lg:items-center lg:justify-between lg:gap-x-12">
+              <div className="lg:max-w-lg">
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                  Sign up for updates
+                </h2>
+                <p className="mt-4 text-lg leading-8 text-gray-600">
+                  We'll let you know when we're live!
                 </p>
-              </article>
+              </div>
 
-              <article className="col-4 col-12-mobile special">
-                <a href="#" className="image featured">
-                  <img src="images/pic08.jpg" alt="" />
-                </a>
-                <header>
-                  <h3>
-                    <a href="#">Sed quis rhoncus placerat</a>
-                  </h3>
-                </header>
-                <p>
-                  Amet nullam fringilla nibh nulla convallis tique ante proin
-                  sociis accumsan lobortis. Auctor etiam porttitor phasellus
-                  tempus cubilia ultrices tempor sagittis. Nisl fermentum
-                  consequat integer interdum.
-                </p>
-              </article>
-
-              <article className="col-4 col-12-mobile special">
-                <a href="#" className="image featured">
-                  <img src="images/pic09.jpg" alt="" />
-                </a>
-                <header>
-                  <h3>
-                    <a href="#">Magna laoreet et aliquam</a>
-                  </h3>
-                </header>
-                <p>
-                  Amet nullam fringilla nibh nulla convallis tique ante proin
-                  sociis accumsan lobortis. Auctor etiam porttitor phasellus
-                  tempus cubilia ultrices tempor sagittis. Nisl fermentum
-                  consequat integer interdum.
-                </p>
-              </article>
+              <form
+                onSubmit={handleSubmit}
+                className="mt-6 flex w-full max-w-md gap-x-4 lg:mt-0"
+              >
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  placeholder="Enter your email"
+                  className="min-w-0 flex-auto rounded-md border border-gray-300 bg-white px-3.5 py-2 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm sm:leading-6"
+                />
+                <button
+                  type="submit"
+                  className="flex-none rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Subscribe
+                </button>
+              </form>
             </div>
+
+            {status && (
+              <p className="mt-4 text-indigo-600">{status}</p>
+            )}
           </section>
         </div>
+
 
         {/* Footer */}
         <div id="footer">
