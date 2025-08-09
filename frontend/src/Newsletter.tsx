@@ -1,62 +1,58 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Newsletter.css";
+import InputSubscription from "./utils/InputSubscription";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface NewsletterModalProps {
     onClose: () => void;
 }
 
 export default function NewsletterModal({ onClose }: NewsletterModalProps) {
-    const [email, setEmail] = useState("");
-    const [status, setStatus] = useState("");
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!email) {
-            setStatus("Please enter a valid email.");
-            return;
-        }
-        setStatus("Thanks for signing up!");
-        setEmail("");
-    };
-
     return (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/30 backdrop-blur-sm">
-            {/* Modal box */}
-            <div className="bg-white rounded-2xl shadow-2xl w-[90%] max-w-md p-6 relative">
+            <Card
+                sx={{
+                    position: "relative",
+                    borderRadius: 3,
+                    width: "90%",
+                    maxWidth: 400,
+                    boxShadow: 8,
+                }}
+            >
                 {/* Close button */}
-                <button
+                <IconButton
                     onClick={onClose}
-                    className="absolute top-3 right-3 text-xl font-bold text-gray-500 hover:text-gray-800"
+                    sx={{
+                        position: "absolute",
+                        top: 8,
+                        right: 8,
+                        color: "grey.500",
+                        "&:hover": { color: "grey.800" },
+                    }}
                 >
-                    ✖
-                </button>
+                    <CloseIcon />
+                </IconButton>
 
-                <h2 className="text-2xl font-bold text-burgundy mb-2">
-                    Join Our Newsletter
-                </h2>
-                <p className="text-gray-700 mb-4">
-                    Get notified when we're launching!
-                </p>
-
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="email"
-                        value={email}
-                        placeholder="Enter your email"
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        className="border border-gray-300 rounded px-3 py-2 w-full mb-3 focus:outline-none focus:ring-2 focus:ring-darkorange"
-                    />
-                    <button
-                        type="submit"
-                        className="bg-burgundy text-white px-4 py-2 rounded w-full hover:bg-darkorange transition"
+                <CardContent>
+                    <Typography
+                        variant="h5"
+                        component="h2"
+                        sx={{ fontWeight: "bold", color: "#800020", mb: 1 }}
                     >
-                        Subscribe
-                    </button>
-                </form>
+                        Join Our Newsletter
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: "text.secondary", mb: 3 }}>
+                        Get notified when we're launching!
+                    </Typography>
 
-                {status && <p className="mt-3 text-burgundy">{status}</p>}
-            </div>
+                    {/* Keep your existing subscription component */}
+                    <InputSubscription />
+                </CardContent>
+            </Card>
         </div>
     );
 }
