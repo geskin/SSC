@@ -41,7 +41,7 @@ export default function NewsletterModal({ onClose }: NewsletterModalProps) {
                     <Typography
                         variant="h5"
                         component="h2"
-                        sx={{ fontWeight: "bold", color: "#800020", mb: 1 }}
+                        sx={{ fontWeight: "bold", color: "#DDAA4F", mb: 1 }}
                     >
                         Join Our Newsletter
                     </Typography>

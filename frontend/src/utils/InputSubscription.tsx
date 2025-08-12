@@ -14,7 +14,7 @@ export default function InputSubscription() {
     status: 'initial',
   });
 
-  const burgundy = '#800020'; // consistent burgundy color
+  const gold = '#DDAA4F'; // consistent gold rum color
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,23 +32,23 @@ export default function InputSubscription() {
   return (
     <form onSubmit={handleSubmit} id="demo">
       <FormControl>
-        <FormLabel sx={{ color: burgundy }}>
+        <FormLabel sx={{ color: gold }}>
           SSC Newsletter
         </FormLabel>
         <Input
           sx={{
             '--Input-decoratorChildHeight': '45px',
-            color: burgundy, // input text
+            color: gold, // input text
             '&::placeholder': {
-              color: burgundy,
+              color: gold,
               opacity: 0.7,
             },
-            borderColor: burgundy,
+            borderColor: gold,
             '&:hover': {
-              borderColor: burgundy,
+              borderColor: gold,
             },
             '&.Mui-focused': {
-              borderColor: burgundy,
+              borderColor: gold,
             },
           }}
           placeholder="mail@gmail.com"
@@ -67,7 +67,7 @@ export default function InputSubscription() {
               sx={{
                 borderTopLeftRadius: 0,
                 borderBottomLeftRadius: 0,
-                backgroundColor: burgundy,
+                backgroundColor: gold,
                 color: 'white',
                 '&:hover': {
                   backgroundColor: '#66001A', // darker burgundy

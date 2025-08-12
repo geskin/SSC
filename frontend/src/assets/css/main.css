@@ -2195,8 +2195,8 @@ button,
 .button {
 	position: relative;
 	display: inline-block;
-	background: #df7366;
-	color: #fff;
+	background: #F35C4D;
+	color: #E8D1A0;
 	text-align: center;
 	border-radius: 0.5em;
 	text-decoration: none;
@@ -2205,6 +2205,7 @@ button,
 	cursor: pointer;
 	outline: 0;
 	font-weight: 300;
+	-webkit-text-color: #F7F4EF !important;
 	-moz-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 	-webkit-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 	-ms-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
@@ -2312,16 +2313,23 @@ header .icon.circled {
 	padding-top: 0;
 }
 
+/* Merch */
+#merch {
+	background-color: #F7F4EF;
+}
+
 /* Header */
 
 #header {
 	position: relative;
+	background-color: #0B2C40;
 	/* background-image: url("../../images/header.jpg"); */
-	background-image: url("../../images/istock.mp4");
-	background-size: cover;
+	/* background-image: url("../../images/istock.mp4"); */
+
+	/* background-size: cover;
 	background-position: center center;
-	background-attachment: fixed;
-	color: #fff;
+	background-attachment: fixed; */
+	/* color: #fff; */
 	text-align: center;
 	padding: 7.5em 0 2em 0;
 	cursor: default;
@@ -2442,14 +2450,15 @@ body.homepage.is-preload #header:after {
 	font-family: 'Ruthie', cursive;
 	font-weight: normal;
 	letter-spacing: 1px;
-	/* adjust as needed */
+	color: #DDAA4F !important;
+	-webkit-text-stroke-color: #DDAA4F !important;
 }
 
 #nav-logo {
 	font-weight: bold !important;
 	font-size: xx-large !important;
-	-webkit-text-stroke-width: 0.05px !important;
-	-webkit-text-stroke-color: #800020 !important;
+	/* -webkit-text-stroke-width: 0.05px !important; */
+
 
 }
 
@@ -2523,11 +2532,11 @@ body.homepage.is-preload #header:after {
 	transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 	font-weight: bolder;
 	font-size: large;
-	-webkit-text-stroke-width: 0.1px;
+	/* -webkit-text-stroke-width: 0.1px; */
 	/* Adjust outline thickness */
-	-webkit-text-stroke-color: white;
+	/* -webkit-text-stroke-color: white; */
 	/* Set the outline color */
-	color: #800020 !important;
+	color: #DDAA4F !important;
 }
 
 #nav>ul>li:hover {
@@ -2663,7 +2672,7 @@ body.homepage.is-preload #header:after {
 	position: relative;
 	overflow: hidden;
 	padding: 6em 0 6em 0;
-	background: #2b252c;
+	background: #0B2C40;
 	color: #fff;
 }
 
@@ -2735,7 +2744,8 @@ body.homepage.is-preload #header:after {
 	width: 6em;
 	height: 6em;
 	border-radius: 100%;
-	background-color: rgba(72, 57, 73, 0.5);
+	/* background-color: rgba(72, 57, 73, 0.5); */
+	background-color: #E8D1A0;
 	position: absolute;
 	top: 50%;
 	margin-top: -3em;

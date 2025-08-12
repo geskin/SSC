@@ -3,7 +3,8 @@ import "./assets/css/main.css";
 import "./assets/css/noscript.css";
 import NewsletterModal from "./Newsletter";
 import { BrowserRouter } from "react-router-dom";
-import video from "./images/istock.mp4"
+import ContactForm from "./ContactForm";
+// import video from "./images/istock.mp4"
 
 
 function App() {
@@ -35,9 +36,9 @@ function App() {
         {showModal && <NewsletterModal onClose={() => setShowModal(false)} />}
 
         <div id="header">
-          <video autoPlay muted loop playsInline className="header-video">
+          {/* <video autoPlay muted loop playsInline className="header-video">
             <source src={video} type="video/mp4" />
-          </video>
+          </video> */}
           <div className="inner">
             <header>
               <h1>
@@ -289,13 +290,15 @@ function App() {
               <div className="col-12">
                 {/* Contact */}
                 <section className="contact">
-                  <header>
+                  {/* <header>
                     <h3>Contact us!</h3>
                   </header>
                   <p>
                     Urna nisl non quis interdum mus ornare ridiculus egestas
                     ridiculus lobortis vivamus tempor aliquet.
-                  </p>
+                  </p> */}
+                  <ContactForm />
+                  <hr />
                   <ul className="icons">
                     <li>
                       <a href="#" className="icon brands fa-twitter">
