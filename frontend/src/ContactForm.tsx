@@ -53,6 +53,7 @@ const ContactForm: React.FC = () => {
                     onChange={handleChange}
                     fullWidth
                     required
+                    sx={{ color: '#F7F4EF' }}
                 />
                 <TextField
                     label="Email"
@@ -62,6 +63,7 @@ const ContactForm: React.FC = () => {
                     type="email"
                     fullWidth
                     required
+                    sx={{ color: '#F7F4EF' }}
                 />
                 <TextField
                     label="Message"
@@ -69,9 +71,10 @@ const ContactForm: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     multiline
-                    rows={4}
+                    rows={1}
                     fullWidth
                     required
+                    sx={{ backgroundColor: "#F7F4EF", borderColor: '#0B2C40' }}
                 />
                 <FormControlLabel
                     control={
@@ -86,6 +89,7 @@ const ContactForm: React.FC = () => {
                         />
                     }
                     label="Sign up for our email list for updates"
+                    sx={{ color: "#F7F4EF" }}
                 />
                 <Button
                     type="submit"

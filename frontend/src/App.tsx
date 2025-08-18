@@ -4,6 +4,7 @@ import "./assets/css/noscript.css";
 import NewsletterModal from "./Newsletter";
 import { BrowserRouter } from "react-router-dom";
 import ContactForm from "./ContactForm";
+import Navbar from "./NavBar";
 // import video from "./images/istock.mp4"
 
 
@@ -32,6 +33,8 @@ function App() {
   return (
     <BrowserRouter>
       <div id="page-wrapper">
+
+        <Navbar />
 
         {showModal && <NewsletterModal onClose={() => setShowModal(false)} />}
 
@@ -218,23 +221,23 @@ function App() {
         <div className="wrapper style2">
           <section>
             <article id="main" className="container special">
-              <a href="#" className="image featured">
-                <img src="src/images/pic06.jpg" alt="" />
-              </a>
               <header id="events">
                 <h2>
                   <a href="#">Events</a>
                 </h2>
-                <p>Click events for event calendar</p>
+                {/* <p>Click events for event calendar</p> */}
               </header>
-              <p>
+              <a href="#" className="image featured">
+                <img src="src/images/pic06.jpg" alt="" />
+              </a>
+              {/* <p>
                 Coming soon!
               </p>
               <footer>
                 <a href="#" className="button">
                   Continue Reading
                 </a>
-              </footer>
+              </footer> */}
             </article>
           </section>
         </div>
@@ -326,7 +329,7 @@ function App() {
                 {/* Copyright */}
                 <div className="copyright">
                   <ul className="menu">
-                    <li>&copy; Sandy's Social Club. All rights reserved.</li>
+                    <li>Copyright &copy; 2025 Sandy's Social Club - All Rights Reserved.</li>
                   </ul>
                 </div>
               </div>

@@ -179,11 +179,12 @@ html {
 
 
 body {
-	background: #f0f4f4;
-	color: #5b5b5b;
+	background: #F7F4EF;
+	color: #0B2C40;
 	font-size: 15pt;
 	line-height: 1.85em;
-	font-family: 'Source Sans Pro', sans-serif;
+	/* font-family: 'Source Sans Pro', sans-serif; */
+	font-family: 'Montserrat', sans-serif;
 	font-weight: 300;
 }
 
@@ -368,6 +369,7 @@ hr:after {
 
 	.container {
 		width: 100%;
+		height: auto;
 	}
 
 }
@@ -376,6 +378,7 @@ hr:after {
 
 	.container {
 		width: 100%;
+		height: auto;
 	}
 
 }
@@ -384,6 +387,7 @@ hr:after {
 
 	.container {
 		width: 100%;
+		height: auto;
 	}
 
 }
@@ -392,6 +396,7 @@ hr:after {
 
 	.container {
 		width: 100%;
+		height: auto;
 	}
 
 }
@@ -1878,7 +1883,7 @@ hr:after {
 
 section,
 article {
-	margin-bottom: 3em;
+	margin-bottom: 3em !important;
 }
 
 section> :last-child,
@@ -2195,7 +2200,7 @@ button,
 .button {
 	position: relative;
 	display: inline-block;
-	background: #F35C4D;
+	background: #3E6B4F;
 	color: #E8D1A0;
 	text-align: center;
 	border-radius: 0.5em;
@@ -2218,7 +2223,7 @@ input[type="reset"]:hover,
 button:hover,
 .button:hover {
 	color: #fff;
-	background: #ef8376;
+	background: #F35C4D;
 }
 
 input[type="button"].alt,
@@ -2456,7 +2461,7 @@ body.homepage.is-preload #header:after {
 
 #nav-logo {
 	font-weight: bold !important;
-	font-size: xx-large !important;
+	font-size: x-large !important;
 	/* -webkit-text-stroke-width: 0.05px !important; */
 
 
@@ -2531,7 +2536,7 @@ body.homepage.is-preload #header:after {
 	-ms-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 	transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 	font-weight: bolder;
-	font-size: large;
+	font-size: small;
 	/* -webkit-text-stroke-width: 0.1px; */
 	/* Adjust outline thickness */
 	/* -webkit-text-stroke-color: white; */
@@ -2615,6 +2620,14 @@ body.homepage.is-preload #header:after {
 	border-bottom: solid 0.75em rgba(255, 255, 255, 0.975);
 	border-left: solid 0.75em rgba(64, 64, 64, 0);
 	border-right: solid 0.75em rgba(64, 64, 64, 0);
+}
+
+/* Mobile view changes */
+@media (max-width: 768px) {
+
+	body {
+		border-top: 1.2rem;
+	}
 }
 
 /* Banner */
@@ -3151,7 +3164,8 @@ body.homepage.is-preload #header:after {
 		text-rendering: auto;
 		line-height: 1;
 		text-transform: none !important;
-		font-family: 'Font Awesome 5 Free';
+		/* font-family: 'Font Awesome 5 Free'; */
+		font-family: 'Ruthie';
 		font-weight: 900;
 	}
 
