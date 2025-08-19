@@ -22,10 +22,10 @@ function App() {
     if (scrollInterval.current) return; // prevent multiple intervals
     scrollInterval.current = setInterval(() => {
       reelRef.current?.scrollBy({
-        left: direction === "left" ? -10 : 10,
+        left: direction === "left" ? -50 : 50,
         behavior: "smooth",
       });
-    }, 50);
+    }, 100);
   };
 
   const stopScrolling = () => {
@@ -42,19 +42,6 @@ function App() {
   const scrollRight = () => {
     reelRef.current?.scrollBy({ left: 300, behavior: "smooth" });
   };
-
-
-
-
-  // Animation variants for each letter
-  // const letterVariants = {
-  //   hidden: { opacity: 0, y: -20 },
-  //   visible: (i: number) => ({
-  //     opacity: 1,
-  //     y: 0,
-  //     transition: { delay: i * 0.2 } // stagger letters
-  //   })
-  // };
 
   useEffect(() => {
     setShowModal(true);
@@ -97,7 +84,7 @@ function App() {
                 </a>
               </h1>
               <hr />
-              <p>Description/slogan</p>
+              {/* <p>Description/slogan</p> */}
             </header>
             <footer>
               {/* <a href="#merch" className="button circled scrolly">
@@ -334,7 +321,7 @@ function App() {
                 {/* <p>Click events for event calendar</p> */}
               </header>
               <a href="#" className="image featured">
-                <img src="src/images/pic06.jpg" alt="" />
+                <img src="src/images/comingsoon.jpg" alt="" />
               </a>
               {/* <p>
                 Coming soon!
@@ -399,14 +386,36 @@ function App() {
               <div className="col-12">
                 {/* Contact */}
                 <section className="contact">
-                  {/* <header>
-                    <h3>Contact us!</h3>
+                  <header>
+                    <h2>Get in touch!</h2>
                   </header>
-                  <p>
-                    Urna nisl non quis interdum mus ornare ridiculus egestas
-                    ridiculus lobortis vivamus tempor aliquet.
-                  </p> */}
-                  <ContactForm />
+
+                  <div className="contact-grid">
+                    <ContactForm />
+                    <ul className="contact-icons desktop">
+                      <li>
+                        <a href="#" className="icon brands fa-twitter">
+                          <span className="label">Twitter</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="icon brands fa-facebook-f">
+                          <span className="label">Facebook</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="icon brands fa-instagram">
+                          <span className="label">Instagram</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="icon brands fa-linkedin-in">
+                          <span className="label">Linkedin</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
                   <hr />
                   <ul className="icons">
                     <li>

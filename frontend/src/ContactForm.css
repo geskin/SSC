@@ -1,3 +1,7 @@
 #box {
     background-color: #F7F4EF;
 }
+
+#message {
+    padding: 0 !important;
+}

@@ -6,7 +6,7 @@ import {
     Checkbox,
     FormControlLabel,
     Typography,
-    Paper
+    Paper,
 } from "@mui/material";
 
 const ContactForm: React.FC = () => {
@@ -14,7 +14,7 @@ const ContactForm: React.FC = () => {
         name: "",
         email: "",
         message: "",
-        subscribe: false
+        subscribe: false,
     });
 
     const handleChange = (
@@ -24,12 +24,12 @@ const ContactForm: React.FC = () => {
         if (type === "checkbox") {
             setFormData({
                 ...formData,
-                [name]: (e.target as HTMLInputElement).checked
+                [name]: (e.target as HTMLInputElement).checked,
             });
         } else {
             setFormData({
                 ...formData,
-                [name]: value
+                [name]: value,
             });
         }
     };
@@ -37,45 +37,84 @@ const ContactForm: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         console.log("Form data submitted:", formData);
-        // Here you can send data to backend or API
+    };
+
+    const textFieldStyles = {
+        "& .MuiInputBase-input": {
+            color: "#0B2C40",
+            backgroundColor: "#F7F4EF",
+        },
+        "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#0B2C40",
+        },
     };
 
     return (
-        <Paper elevation={3} sx={{ p: 3, backgroundColor: "#0B2C40", color: "#DDAA4F" }}>
-            <Typography variant="h6" gutterBottom>
+        <Paper
+            elevation={3}
+            sx={{
+                width: {
+                    xs: "100%", // mobile full width
+                    sm: "70%",  // tablet
+                    md: "50%",  // desktop
+                },
+                p: 2,
+                backgroundColor: "#0B2C40",
+                color: "#DDAA4F",
+            }}
+        >
+            {/* <Typography variant="h6" gutterBottom>
                 Contact Us
-            </Typography>
-            <Box component="form" onSubmit={handleSubmit} sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            </Typography> */}
+
+            <Box
+                component="form"
+                onSubmit={handleSubmit}
+                sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+            >
                 <TextField
                     label="Name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    fullWidth
                     required
-                    sx={{ color: '#F7F4EF' }}
+                    sx={textFieldStyles}
                 />
+
                 <TextField
                     label="Email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     type="email"
-                    fullWidth
                     required
-                    sx={{ color: '#F7F4EF' }}
+                    sx={textFieldStyles}
                 />
+
                 <TextField
                     label="Message"
                     name="message"
+                    id="message"
                     value={formData.message}
                     onChange={handleChange}
+                    required
                     multiline
                     rows={1}
-                    fullWidth
-                    required
-                    sx={{ backgroundColor: "#F7F4EF", borderColor: '#0B2C40' }}
+                    sx={{
+                        "& .MuiOutlinedInput-root": {
+                            padding: 0,
+                        },
+                        "& .MuiOutlinedInput-input": {
+                            padding: 0,
+                            color: "#0B2C40",
+                            backgroundColor: "#F7F4EF",
+                        },
+                        "& .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#0B2C40",
+                        },
+                    }}
                 />
+
                 <FormControlLabel
                     control={
                         <Checkbox
@@ -84,19 +123,26 @@ const ContactForm: React.FC = () => {
                             onChange={handleChange}
                             sx={{
                                 color: "#DDAA4F",
-                                "&.Mui-checked": { color: "#DDAA4F" }
+                                "&.Mui-checked": { color: "#DDAA4F" },
                             }}
                         />
                     }
                     label="Sign up for our email list for updates"
                     sx={{ color: "#F7F4EF" }}
                 />
+
                 <Button
                     type="submit"
                     variant="contained"
                     sx={{
                         backgroundColor: "#DDAA4F",
-                        "&:hover": { backgroundColor: "#DDAA4F" }
+                        "&:hover": { backgroundColor: "#DDAA4F" },
+                        width: {
+                            xs: "100%",
+                            sm: "70%",
+                            md: "50%",
+                        },
+                        alignSelf: "center",
                     }}
                 >
                     Submit
@@ -107,3 +153,4 @@ const ContactForm: React.FC = () => {
 };
 
 export default ContactForm;
+
